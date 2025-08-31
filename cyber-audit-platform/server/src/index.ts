@@ -3,8 +3,6 @@ import cors from 'cors';
 import apiRoutes from './api/routes';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
 // Configure CORS for security
 const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:5173,http://localhost:4173').split(',');
 const corsOptions: cors.CorsOptions = {
@@ -28,6 +26,4 @@ app.get('/api/health', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Server is running and healthy!' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+export default app;
