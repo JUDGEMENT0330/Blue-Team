@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "env": {
+    "VITE_API_URL": "/api"
+  },
+  "builds": [
+    {
+      "src": "cyber-audit-platform/server/src/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "cyber-audit-platform/client/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/cyber-audit-platform/server/dist/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/cyber-audit-platform/client/dist/index.html"
+    }
+  ]
+}
