@@ -20,9 +20,9 @@ const corsOptions: cors.CorsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.use('/api', apiRoutes);
+app.use(apiRoutes);
 
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Server is running and healthy!' });
 });
 
